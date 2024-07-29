@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+      {
+          "label": "Run Havnix Program",
+          "type": "shell",
+          "command": "python",
+          "args": [
+              "${workspaceFolder}/havnix.py",
+              "${file}"
+          ],
+          "group": {
+              "kind": "build",
+              "isDefault": true
+          },
+          "problemMatcher": []
+      }
+  ]
+}
