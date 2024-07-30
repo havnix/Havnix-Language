@@ -1,6 +1,7 @@
 @echo off
 title Havnix 1.0.0 (Powered by Osman Salih)
 color a
+
 :run_program
 cls
 python havnix.py main.havnix

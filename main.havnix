@@ -6,6 +6,11 @@ All Rights Reserved (GPL-3.0 license)
 ‣ Important | If you can help you can contribute in github https://github.com/havnix/Havnix-Language/
 */
 
+// استيراد
+
+جيب لي "users.havnix";
+جيب لي "file.havnix";
+
 // متغيرات
 
 $الاسم = "Osman";
@@ -13,12 +18,14 @@ $العمر = 18;
 $سوداني = صاح;
 $مصفوفة = [1, 2, 3, 4, 5];
 
-// تنفيذ
+// طباعة
 
 قول ليهو("=-=-=-=-=-=-=-=-=-=");
 قول ليهو("Havnix Language (Developed By: Osman Salih)");
 قول ليهو("Made In Sudan <3");
 قول ليهو("=-=-=-=-=-=-=-=-=-=");
+
+// استعلام
 
 لو (18 == 18) {
     قول ليهو("Your age is $العمر");
@@ -34,7 +41,6 @@ $مصفوفة = [1, 2, 3, 4, 5];
 غير كدا {
 	قول ليهو("You're not Sudanese");
 }
-
 
 قول ليهو("$مصفوفة");
 قول ليهو("You choosed this value from the array: $مصفوفة[3].");
