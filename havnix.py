@@ -1,3 +1,9 @@
+# Powered By Havnix™
+# Developed By Osman Salih
+# All Rights Reserved (GPL-3.0 license)
+# https://github.com/havnix/Havnix-Language
+# v1.0.0
+
 import sys
 from commands.print import execute_print
 from features.if_statement import execute_if_statement
