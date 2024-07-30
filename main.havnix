@@ -9,7 +9,7 @@ All Rights Reserved (GPL-3.0 license)
 // استيراد
 
 جيب لي "users.havnix";
-جيب لي "file.havnix";
+جيب لي "not-exists.havnix"; // ملف غير موجود للاختبار
 
 // متغيرات
 
