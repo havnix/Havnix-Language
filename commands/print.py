@@ -13,7 +13,7 @@ def execute_print(command, variables):
                             text = text.replace(f"${var_name}[{index}]", str(variables[var_name][int(index)]))
                         else:
                             print(f"تحذير: المتغير {var_name} ليس قائمة.")
-                text = text.replace(f"${var}", str(variables[var]))
+                text = re.sub(r'\$' + re.escape(var) + r'\b', str(variables[var]), text)
         
         print(text)
     else:

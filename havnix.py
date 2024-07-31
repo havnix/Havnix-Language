@@ -22,9 +22,9 @@ def execute_line(line, variables, lines, current_index):
         current_index = execute_if_statement(line, variables, lines, current_index, execute_line)
     elif line.startswith('دالة'):
         current_index = define_function(line, lines, current_index)
-    elif line.startswith('داير'):
-        call_function(line, variables)
     elif line.startswith('جيب لي'):
+        call_function(line, variables, lines, execute_line)
+    elif line.startswith('داير'):
         execute_import(line, variables, lines)
     else:
         print("أمر غير مفهوم:", line)
@@ -49,6 +49,6 @@ def run_program(file_name):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("استخدام: python main.py <file.havnix>")
+        print("استخدام: python havnix.py <file.havnix>")
     else:
         run_program(sys.argv[1])

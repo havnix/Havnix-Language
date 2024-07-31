@@ -3,7 +3,6 @@ import re
 functions = {}
 
 def define_function(command, lines, current_index):
-
     match = re.match(r'دالة\s*(\w+)\s*\((.*)\)\s*{', command)
     if match:
         func_name = match.group(1)
@@ -24,9 +23,8 @@ def define_function(command, lines, current_index):
         return current_index
     return None
 
-def call_function(command, variables):
-
-    match = re.match(r'داير\s*(\w+)\s*\((.*)\)\s*;', command)
+def call_function(command, variables, lines, execute_line):
+    match = re.match(r'جيب لي\s*(\w+)\s*\((.*)\)\s*;', command)
     if match:
         func_name = match.group(1)
         args = match.group(2).split(',')
@@ -34,14 +32,12 @@ def call_function(command, variables):
         
         if func_name in functions:
             func = functions[func_name]
-            body = func['body']
-
-            for line in body:
-                for i, param in enumerate(func['params']):
-
-
-                    arg_value = args[i].strip('"')
-                    line = re.sub(r'\b' + re.escape(param) + r'\b', arg_value, line)
-                print(line)
+            local_vars = variables.copy()
+            
+            for i, param in enumerate(func['params']):
+                local_vars[param] = args[i].strip('"')
+                
+            for line in func['body']:
+                execute_line(line, local_vars, lines, 0)
         else:
-            print(f"الدالة {func_name} غير موجودة.")
+            print(f"[Functions] '{func_name}' doesn't exists.")

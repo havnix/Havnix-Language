@@ -44,3 +44,12 @@ $مصفوفة = [1, 2, 3, 4, 5];
 
 قول ليهو("$مصفوفة");
 قول ليهو("You choosed this value from the array: $مصفوفة[3].");
+
+// دالة جديدة
+دالة greet(name, age) {
+    قول ليهو("Hello, $name your age is $age");
+}
+
+// استدعاء الدالة
+جيب لي greet("Osman", 18);
+جيب لي greet("Ahmed", 16);
