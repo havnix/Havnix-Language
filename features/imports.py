@@ -26,11 +26,21 @@ def execute_import(command, variables, lines):
                             var_name, var_value = parse_variable(line)
                             if var_name:
                                 variables[var_name] = var_value
-                        elif line.startswith('قول ليهو'):
-                            lines.append(line)
-                return
+                        elif line.startswith('دالة'):
+                            function_name = re.match(r'دالة\s+(\w+)', line).group(1)
+                            function_lines = []
+                            function_lines.append(line)
+                            i = imported_lines.index(line) + 1
+                            while i < len(imported_lines) and not imported_lines[i].strip() == 'انتهى':
+                                function_lines.append(imported_lines[i])
+                                i += 1
+                            function_lines.append('انتهى')
+                            variables[function_name] = function_lines
+                return True
         
         print(f"[Import] ما قدرت استعدي الملف دا '{file_to_import}' لأني ما لقيتو")
+        return False
+    return False
 
 def parse_variable(line):
     match = re.match(r'\$(\w+)\s*=\s*[\'"]?(.*?)[\'"]?\s*;', line)
