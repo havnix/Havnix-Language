@@ -1,8 +1,4 @@
-# Powered By Havnix™
-# Developed By Osman Salih
-# All Rights Reserved (GPL-3.0 license)
-# https://github.com/havnix/Havnix-Language
-# v1.0.0
+# havnix.py
 
 import sys
 from commands.print import execute_print
@@ -12,6 +8,8 @@ from features.variables import execute_variable_assignment
 from features.functions import define_function, call_function
 from features.comments import process_comments
 from features.imports import execute_import
+from features.loop import execute_loop
+from features.gui import create_gui
 
 def execute_line(line, variables, lines, current_index):
     if line.startswith('قول ليهو'):
@@ -26,6 +24,12 @@ def execute_line(line, variables, lines, current_index):
         call_function(line, variables, lines, execute_line)
     elif line.startswith('داير'):
         execute_import(line, variables, lines)
+    elif line.startswith('تكرار'):
+        current_index = execute_loop(line, variables, lines, current_index, execute_line)
+    elif line.startswith('واجهة'):
+        create_gui(line, variables)
+    elif line == 'انتهى':
+        pass
     else:
         print("أمر غير مفهوم:", line)
     return current_index
