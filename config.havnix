@@ -1,8 +1,0 @@
-// قريبا
-
-$project_name = 'Havnix';
-$version = '1.0.0';
-$author = 'Osman Salih';
-$license = 'GPL-3.0';
-$firebase_api = 'your_firebase_api_here';
-$captcha_api = 'your_captcha_api_here';
