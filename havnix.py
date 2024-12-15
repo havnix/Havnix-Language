@@ -9,7 +9,6 @@ from features.functions import define_function, call_function
 from features.comments import process_comments
 from features.imports import execute_import
 from features.loop import execute_loop
-from features.gui import create_gui
 
 def execute_line(line, variables, lines, current_index):
     if line.startswith('قول ليهو'):
@@ -26,8 +25,6 @@ def execute_line(line, variables, lines, current_index):
         execute_import(line, variables, lines)
     elif line.startswith('تكرار'):
         current_index = execute_loop(line, variables, lines, current_index, execute_line)
-    elif line.startswith('واجهة'):
-        create_gui(line, variables)
     elif line == 'انتهى':
         pass
     else:
