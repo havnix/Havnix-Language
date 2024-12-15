@@ -1,4 +1,4 @@
-// قريبا
+// الاعدادات العامة
 
 $project_name = 'Havnix';
 $version = '1.0.0';
@@ -6,3 +6,14 @@ $author = 'Osman Salih';
 $license = 'GPL-3.0';
 $firebase_api = 'your_firebase_api_here';
 $captcha_api = 'your_captcha_api_here';
+
+
+// اعدادات قاعدة البيانات
+$السيرفر = 'localhost';
+$المستخدم = 'root';
+$كلمة_المرور = '';
+$قاعدة_البيانات = 'havnix';
+
+دالة database(الاسم) {
+    قول ليهو("تم الاتصال بقاعدة البيانات $قاعدة_البيانات");
+}
