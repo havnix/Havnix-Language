@@ -16,7 +16,7 @@ $المستخدمين = جيب_من("https://jsonplaceholder.typicode.com/users"
 // ═══ طلب POST - إرسال بيانات ═══
 قول ليهو("=== إرسال بيانات ===");
 $بيانات_جديدة = {"title": "مقال جديد", "body": "محتوى المقال", "userId": 1};
-$رد_الإرسال = ابعت_ل("https://jsonplaceholder.typicode.com/posts", $بيانات_جديدة);
+$رد_الإرسال = رسل_لي("https://jsonplaceholder.typicode.com/posts", $بيانات_جديدة);
 قول ليهو("نتيجة الإرسال:");
 اطبع($رد_الإرسال);
 

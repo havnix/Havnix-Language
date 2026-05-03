@@ -42,11 +42,11 @@ class HavnixInterpreter:
         self.builtin_funcs = {
             'طول': self._fn_length,
             'قطع': self._fn_substring,
-            'استبدل': self._fn_replace,
+            'بدل': self._fn_replace,
             'قسم': self._fn_split,
             'كبر': self._fn_upper,
             'صغر': self._fn_lower,
-            'يحتوي': self._fn_contains,
+            'فيهو': self._fn_contains,
             'ضم': self._fn_join,
             'جذر': self._fn_sqrt,
             'قوة': self._fn_power,
@@ -222,7 +222,7 @@ class HavnixInterpreter:
             self._cmd_func_call(line, scope)
         elif line.startswith('رجع'):
             self._cmd_return(line, scope)
-        elif line.startswith('وقف'):
+        elif line.startswith('اقيف'):
             raise HavnixBreak()
         elif line.startswith('كمل'):
             raise HavnixContinue()
@@ -240,7 +240,7 @@ class HavnixInterpreter:
             self._cmd_db_execute(line, scope)
         elif line.startswith('اقفل_قاعدة'):
             self._cmd_db_close(line, scope)
-        elif line.startswith('جيب_من') or line.startswith('ابعت_ل') or line.startswith('حدث_في') or line.startswith('احذف_من_api'):
+        elif line.startswith('جيب_من') or line.startswith('رسل_لي') or line.startswith('حدث_في') or line.startswith('احذف_من_api'):
             self._cmd_http(line, scope)
         elif line.startswith('نافذة_جديدة'):
             self._cmd_gui_window(line, scope)
@@ -252,7 +252,7 @@ class HavnixInterpreter:
             self._cmd_gui_entry(line, scope)
         elif line.startswith('مساحة_نص'):
             self._cmd_gui_textarea(line, scope)
-        elif line.startswith('قائمة_منسدلة'):
+        elif line.startswith('قائمة_اختيار'):
             self._cmd_gui_dropdown(line, scope)
         elif line.startswith('خانة_اختيار'):
             self._cmd_gui_checkbox(line, scope)
@@ -262,7 +262,7 @@ class HavnixInterpreter:
             self._cmd_read_file(line, scope)
         elif line.startswith('اكتب_ملف'):
             self._cmd_write_file(line, scope)
-        elif line.startswith('اضف_ملف'):
+        elif line.startswith('ضيف_ملف'):
             self._cmd_append_file(line, scope)
         elif line.startswith('احذف_ملف'):
             self._cmd_delete_file(line, scope)
@@ -277,8 +277,8 @@ class HavnixInterpreter:
 
     _SPECIAL_CMDS = [
         'اتصل_قاعدة', 'استعلم', 'نفذ_استعلام',
-        'جيب_من', 'ابعت_ل', 'حدث_في', 'احذف_من_api',
-        'نافذة_جديدة', 'مدخل_نص', 'مساحة_نص', 'قائمة_منسدلة', 'خانة_اختيار',
+        'جيب_من', 'رسل_لي', 'حدث_في', 'احذف_من_api',
+        'نافذة_جديدة', 'مدخل_نص', 'مساحة_نص', 'قائمة_اختيار', 'خانة_اختيار',
         'اقرأ_ملف', 'اقرا_ملف',
         'اسأل', 'اسال',
     ]
@@ -299,7 +299,7 @@ class HavnixInterpreter:
             self._cmd_db_connect(line, scope)
         elif rhs.startswith('استعلم'):
             self._cmd_db_query(line, scope)
-        elif rhs.startswith('جيب_من') or rhs.startswith('ابعت_ل') or rhs.startswith('حدث_في') or rhs.startswith('احذف_من_api'):
+        elif rhs.startswith('جيب_من') or rhs.startswith('رسل_لي') or rhs.startswith('حدث_في') or rhs.startswith('احذف_من_api'):
             self._cmd_http(line, scope)
         elif rhs.startswith('نافذة_جديدة'):
             self._cmd_gui_window(line, scope)
@@ -307,7 +307,7 @@ class HavnixInterpreter:
             self._cmd_gui_entry(line, scope)
         elif rhs.startswith('مساحة_نص'):
             self._cmd_gui_textarea(line, scope)
-        elif rhs.startswith('قائمة_منسدلة'):
+        elif rhs.startswith('قائمة_اختيار'):
             self._cmd_gui_dropdown(line, scope)
         elif rhs.startswith('خانة_اختيار'):
             self._cmd_gui_checkbox(line, scope)
@@ -934,7 +934,7 @@ class HavnixInterpreter:
             self._do_http_request('GET', var_name, args, scope)
             return
 
-        post_match = re.match(r'\$(\w+)\s*=\s*ابعت_ل\s*\((.+?)\)\s*;?\s*$', line)
+        post_match = re.match(r'\$(\w+)\s*=\s*رسل_لي\s*\((.+?)\)\s*;?\s*$', line)
         if post_match:
             var_name = post_match.group(1)
             args = self._parse_args(post_match.group(2), scope)
@@ -1153,7 +1153,7 @@ class HavnixInterpreter:
         scope[var_name] = text
 
     def _cmd_gui_dropdown(self, line, scope):
-        match = re.match(r'\$(\w+)\s*=\s*قائمة_منسدلة\s*\((.+?)\)\s*;?\s*$', line)
+        match = re.match(r'\$(\w+)\s*=\s*قائمة_اختيار\s*\((.+?)\)\s*;?\s*$', line)
         if not match:
             return
 
@@ -1251,7 +1251,7 @@ class HavnixInterpreter:
             print(f"خطأ في كتابة الملف: {e}")
 
     def _cmd_append_file(self, line, scope):
-        match = re.match(r'اضف_ملف\s*\((.+?)\)\s*;?\s*$', line)
+        match = re.match(r'ضيف_ملف\s*\((.+?)\)\s*;?\s*$', line)
         if not match:
             return
 

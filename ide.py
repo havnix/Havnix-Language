@@ -6,7 +6,7 @@ Syntax Highlighting, Git support, and more.
 No external dependencies - uses Python built-in modules only.
 
 Usage: python3 ide.py [port]
-Default port: 8585
+Default port: 249
 """
 
 import http.server
@@ -22,7 +22,7 @@ import signal
 import select
 from urllib.parse import urlparse, parse_qs, unquote
 
-PORT = 8585
+PORT = 249
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # ─── Shell Session Manager ───
@@ -814,10 +814,10 @@ body {
         <button onclick="newFile()">جديد</button>
         <button onclick="openFile()">فتح</button>
         <button onclick="saveFile()">حفظ</button>
-        <button onclick="saveAsFile()">حفظ باسم</button>
+        <button onclick="saveAsFile()">حفظ بإسم</button>
         <button class="run-btn" onclick="runCode()">&#9654; تشغيل F5</button>
         <button onclick="clearTerminal()">مسح</button>
-        <span style="margin-right:auto; margin-left:8px; color:var(--blue); font-weight:bold; font-size:12px;">Havnix IDE v3.0</span>
+        <span style="margin-right:auto; margin-left:8px; color:var(--blue); font-weight:bold; font-size:12px;">Havnix IDE v1.0</span>
     </div>
 
     <div id="main-area">
@@ -846,8 +846,8 @@ body {
 
     <div id="bottom-panel">
         <div id="terminal-tabs">
-            <div class="term-tab active" data-tab="output" onclick="switchTermTab('output')">الخرج</div>
-            <button class="add-tab" onclick="showNewTabMenu(event)" title="طرفية جديدة">+</button>
+            <div class="term-tab active" data-tab="output" onclick="switchTermTab('output')">المخرجات</div>
+            <button class="add-tab" onclick="showNewTabMenu(event)" title="Terminal جديد">+</button>
         </div>
         <div id="terminal-container">
             <div class="terminal-panel active" id="term-output">
@@ -890,7 +890,7 @@ const HAVNIX_KEYWORDS = [
 ];
 const HAVNIX_BUILTINS = [
     'قول ليهو', 'اطبع', 'جيب لي', 'طول', 'نوع', 'نص', 'رقم', 'عشري',
-    'قائمة', 'تقسيم', 'دمج', 'استبدل', 'يحتوي', 'يبدأ_ب', 'ينتهي_ب',
+    'قائمة', 'تقسيم', 'دمج', 'بدل', 'فيهو', 'يبدأ_ب', 'ينتهي_ب',
     'حروف_كبيرة', 'حروف_صغيرة', 'قص_فراغات', 'عكس', 'ترتيب',
     'اضف', 'احذف', 'ادرج', 'مفاتيح', 'قيم', 'عناصر',
     'جذر', 'قوة', 'مطلق', 'تقريب', 'اقصى', 'ادنى', 'مجموع',
@@ -898,9 +898,9 @@ const HAVNIX_BUILTINS = [
     'اقرأ_ملف', 'اكتب_ملف', 'اضف_لملف', 'ملف_موجود', 'احذف_ملف',
     'من_json', 'الى_json',
     'اتصل_قاعدة', 'استعلم', 'نفذ_استعلام', 'اقفل_قاعدة',
-    'جيب_من', 'ابعت_ل', 'حدث_في', 'احذف_من_api',
+    'جيب_من', 'رسل_لي', 'حدث_في', 'احذف_من_api',
     'نافذة_جديدة', 'زر', 'نص_ثابت', 'مدخل_نص', 'مساحة_نص',
-    'قائمة_منسدلة', 'خانة_اختيار', 'شغل_واجهة',
+    'قائمة_اختيار', 'خانة_اختيار', 'شغل_واجهة',
     'الوقت_الحالي', 'انتظر'
 ];
 const HAVNIX_BOOLS = ['صاح', 'غلط', 'فاضي'];
@@ -1529,11 +1529,11 @@ def main():
 
     print(f"""
 ╔══════════════════════════════════════════╗
-║       Havnix IDE v3.0  🇸🇩              ║
-║   بيئة تطوير متكاملة للغة هافنيكس      ║
+║       Havnix IDE v3.0                    ║
+║   بيئة تطوير متكاملة للغة هافنيكس            ║
 ╠══════════════════════════════════════════╣
-║   {url:<37s}  ║
-║   اضغط Ctrl+C للإيقاف                  ║
+║   {url:<37s}                             ║
+║   اضغط Ctrl+C للإيقاف                     ║
 ╚══════════════════════════════════════════╝
 """)
 
