@@ -95,7 +95,7 @@ class HavnixInterpreter:
 
     def _preprocess(self, source):
         lines = source.split('\n')
-        result = []
+        cleaned = []
         in_block_comment = False
         for line in lines:
             stripped = line.strip()
@@ -121,7 +121,37 @@ class HavnixInterpreter:
                         break
                 if cut_pos >= 0:
                     stripped = stripped[:cut_pos].rstrip()
-            result.append(stripped)
+            cleaned.append(stripped)
+
+        result = []
+        i = 0
+        while i < len(cleaned):
+            line = cleaned[i]
+            is_assignment = bool(re.match(r'^\$\w+\s*=', line) or line.startswith('ثابت '))
+            if is_assignment:
+                bracket_count = line.count('[') - line.count(']')
+                eq_pos = line.index('=')
+                rhs = line[eq_pos + 1:]
+                paren_count = rhs.count('(') - rhs.count(')')
+                brace_count = 0
+                for ch in rhs:
+                    if ch == '{':
+                        brace_count += 1
+                    elif ch == '}':
+                        brace_count -= 1
+                while (bracket_count > 0 or brace_count > 0 or paren_count > 0) and i + 1 < len(cleaned):
+                    i += 1
+                    next_line = cleaned[i]
+                    line = line + ' ' + next_line
+                    bracket_count += next_line.count('[') - next_line.count(']')
+                    paren_count += next_line.count('(') - next_line.count(')')
+                    for ch in next_line:
+                        if ch == '{':
+                            brace_count += 1
+                        elif ch == '}':
+                            brace_count -= 1
+            result.append(line)
+            i += 1
         return result
 
     def _find_block_end(self, lines, start):
@@ -314,6 +344,17 @@ class HavnixInterpreter:
 
     # ─── Print ───
 
+    def _format_value(self, value):
+        if isinstance(value, bool):
+            return 'صاح' if value else 'غلط'
+        if value is None:
+            return 'فاضي'
+        if isinstance(value, list):
+            return '[' + ', '.join(self._format_value(v) for v in value) + ']'
+        if isinstance(value, dict):
+            return json.dumps(value, ensure_ascii=False, indent=2)
+        return str(value)
+
     def _cmd_print(self, line, scope):
         match = re.match(r'(?:قول ليهو|اطبع)\s*\(\s*(.+)\s*\)\s*;?\s*$', line)
         if match:
@@ -325,16 +366,7 @@ class HavnixInterpreter:
             else:
                 try:
                     value = self._eval(expr, scope)
-                    if isinstance(value, list):
-                        print('[' + ', '.join(str(v) for v in value) + ']')
-                    elif isinstance(value, dict):
-                        print(json.dumps(value, ensure_ascii=False, indent=2))
-                    elif isinstance(value, bool):
-                        print('صاح' if value else 'غلط')
-                    elif value is None:
-                        print('فاضي')
-                    else:
-                        print(value)
+                    print(self._format_value(value))
                 except Exception:
                     text = self._interpolate(expr, scope)
                     print(text)
