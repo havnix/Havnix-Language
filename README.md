@@ -1,116 +1,170 @@
-# Havnix Language | لغة هافنيكس
+# Havnix Language | لغة هافنيكس 🇸🇩
+
+<div align="center">
+
+**لغة برمجة عربية باللهجة السودانية تم تطويرها بلغة بايثون**
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+
+</div>
 
 ## المقدمة
 
 Havnix هي لغة برمجة تستخدم اللغة العربية باللهجة السودانية لتنفيذ الأوامر. تم تصميمها لتكون سهلة الفهم والاستخدام لمن يتحدثون اللغة العربية، وخاصة باللهجة السودانية.
 
-تم تطويرها بواسطة المبرمج [Osman Salih](https://github.com/osmansalih)
+تم تطويرها بواسطة المبرمج [Osman Salih](https://github.com/Snixrs)
 
-### المتطلبات
+## المميزات
 
-- Python 3.x
+- ✨ **لغة برمجة كاملة** - متغيرات، شروط، حلقات، دوال، معالجة أخطاء
+- 🗄️ **اتصال بـ MySQL** - إنشاء جداول، إدخال، استعلام، تحديث، حذف بيانات
+- 🌐 **التعامل مع APIs** - طلبات GET, POST, PUT, DELETE
+- 🖥️ **تطبيقات سطح المكتب** - واجهات رسومية باستخدام tkinter
+- 📁 **التعامل مع الملفات** - قراءة، كتابة، إضافة، حذف
+- 🔢 **عمليات رياضية** - جذر، قوة، عشوائي، تقريب، وأكثر
+- 📝 **عمليات نصية** - طول، قطع، استبدال، تقسيم، وأكثر
+- 🔄 **تحويل أنواع** - رقم، عشري، نص، منطقي
+- 📦 **استيراد ملفات** - تنظيم الكود في ملفات منفصلة
+- 🛡️ **معالجة أخطاء** - جرب/امسك/واخيراً
 
-### كيفية الاستخدام
+## المتطلبات
 
-1. **تنصيب Python**
-   تأكد من أن لديك Python مثبتًا على جهازك. يمكنك تنزيله من [python.org](https://www.python.org/).
+- Python 3.8+
 
-2. **تنزيل لغة Havnix**
+### مكتبات اختيارية
 
-   قم بتنزيل الكود من المستودع على GitHub:
-   ```sh
-   git clone https://github.com/havnix/Havnix-Language.git
-   ```
-
-3. **تعلم استخدام لغة Havnix**
-   
-   لمعرفة طريقة البرمجة بلغة Havnix اتبع التعليمات [من هنا](https://github.com/havnix/Havnix-Language/wiki).
-
-
-### بدء الاستخدام
-
-أنشئ ملفًا جديدًا بامتداد ``.havnix`` وضع فيه كود Havnix.
-
-تشغيل لغة البرمجة:
-افتح سطر الأوامر وانتقل إلى المجلد الذي يحتوي على ملف البايثون والملف الذي أنشأته بلغة Havnix، ثم نفذ الأمر التالي:
-```
-python havnix.py <اسم الملف>.havnix
+```bash
+pip install -r requirements.txt
 ```
 
-او قم بتشغيل ملف ``run.bat`` بعد تعديله ووضع اسم ملف Havnix الذي قمت بإنشائه
+- `mysql-connector-python` — للاتصال بقاعدة بيانات MySQL
+- `requests` — للتعامل مع APIs
 
-مثال لملف run.bat:
-```bat
-@echo off
-title Havnix 1.0.0 (Powered by Osman Salih)
-color a
+## التثبيت والتشغيل
 
-:run_program
-cls
+```bash
+# تنزيل المشروع
+git clone https://github.com/Snixrs/Havnix-Language.git
+cd Havnix-Language
+
+# تشغيل ملف هافنيكس
 python havnix.py main.havnix
-echo.
-echo -----------------------
-echo.
-echo Press [1] to reload...
-echo Press [2] to exit...
-echo.
-echo -----------------------
-echo.
-choice /c 12 /n
-if errorlevel 2 goto :eof
-if errorlevel 1 goto run_program
+
+# عرض المساعدة
+python havnix.py --مساعدة
 ```
 
-
-إليك مثالًا بسيطًا لملف Havnix:
+## مثال سريع
 
 ```havnix
-
-/* 
-Powered By Osman Salih
-Havnix Language v1.0.0
-All Rights Reserved (GPL-3.0 license)
-
-‣ Important | If you can help you can contribute in github https://github.com/havnix/Havnix-Language/
-*/
-
 // متغيرات
-
-$الاسم = "Osman";
+$الاسم = "عثمان";
 $العمر = 18;
 $سوداني = صاح;
-$مصفوفة = [1, 2, 3, 4, 5];
 
-// تنفيذ
+// طباعة
+قول ليهو("مرحبا يا $الاسم!");
 
-قول ليهو("=-=-=-=-=-=-=-=-=-=");
-قول ليهو("Havnix Language (Developed By: Osman Salih)");
-قول ليهو("Made In Sudan <3");
-قول ليهو("=-=-=-=-=-=-=-=-=-=");
-
-لو (18 == 18) {
-    قول ليهو("Your age is $العمر");
-}
-
-لو ($الاسم == "Osman") {
-    قول ليهو("Your name is $الاسم");
-}
-
+// شرط
 لو ($سوداني == صاح) {
-    قول ليهو("You're Sudanese");
-}
-غير كدا {
-	قول ليهو("You're not Sudanese");
+    قول ليهو("انت سوداني يا حبيب 🇸🇩");
 }
 
-قول ليهو("$مصفوفة");
-قول ليهو("You choosed this value from the array: $مصفوفة[3].");
+// دالة
+دالة سلام(الاسم) {
+    قول ليهو("أهلاً يا $الاسم!");
+}
+جيب لي سلام("أحمد");
 
+// حلقة
+$فواكه = ["تفاح", "موز", "برتقال"];
+لكل $فاكهة في $فواكه {
+    قول ليهو("فاكهة: $فاكهة");
+}
+
+// API
+$رد = جيب_من("https://api.example.com/data");
+اطبع($رد);
+
+// MySQL
+$اتصال = اتصل_قاعدة("localhost", "root", "", "mydb");
+$نتائج = استعلم($اتصال, "SELECT * FROM users");
+اقفل_قاعدة($اتصال);
+
+// واجهة رسومية
+$نافذتي = نافذة_جديدة("تطبيقي", 400, 300);
+نص_ثابت($نافذتي, "مرحبا!");
+زر($نافذتي, "اضغط هنا");
+شغل_واجهة($نافذتي);
 ```
 
+## الأوامر الأساسية
 
-<b>إذا كنت ترغب في المساعدة في تطوير اللغة، يمكنك المساهمة على ``GitHub`` سواء ب Pull Requests أو الابلاغ عن المشاكل.</b>
+| الأمر | الوصف |
+|-------|-------|
+| `قول ليهو("نص")` | طباعة |
+| `$اسم = قيمة;` | تعريف متغير |
+| `لو (شرط) { }` | جملة شرطية |
+| `غير كدا لو (شرط) { }` | شرط إضافي |
+| `غير كدا { }` | الحالة الافتراضية |
+| `طالما (شرط) { }` | حلقة while |
+| `لكل $عنصر في $قائمة { }` | حلقة foreach |
+| `تكرار ($ت = 0; $ت < 10; $ت = $ت + 1) { }` | حلقة for |
+| `دالة اسم(معاملات) { }` | تعريف دالة |
+| `جيب لي اسم(قيم);` | استدعاء دالة |
+| `رجع قيمة;` | إرجاع قيمة |
+| `جرب { } امسك ($خ) { }` | معالجة أخطاء |
+| `داير "ملف.havnix";` | استيراد ملف |
 
+## هيكل المشروع
+
+```
+Havnix-Language/
+├── havnix.py              # نقطة الدخول الرئيسية
+├── requirements.txt       # المتطلبات
+├── GUIDE.md              # دليل الاستخدام الشامل
+├── main.havnix           # ملف مثال رئيسي
+├── core/                 # محرك اللغة
+│   ├── interpreter.py    # المفسر الرئيسي
+│   └── expressions.py    # محلل التعبيرات
+├── commands/             # أوامر اللغة
+│   └── print.py          # أمر الطباعة
+├── features/             # الميزات
+│   ├── comments.py       # التعليقات
+│   ├── comparison.py     # المقارنات
+│   ├── functions.py      # الدوال
+│   ├── if_statement.py   # الشروط
+│   ├── imports.py        # الاستيراد
+│   ├── loop.py           # الحلقات
+│   └── variables.py      # المتغيرات
+├── include/              # ملفات مكتبة
+│   ├── config.havnix     # الإعدادات
+│   └── users.havnix      # المستخدمين
+└── examples/             # أمثلة
+    ├── hello.havnix      # مرحبا بالعالم
+    ├── variables.havnix  # المتغيرات
+    ├── conditions.havnix # الشروط
+    ├── loops.havnix      # الحلقات
+    ├── functions.havnix  # الدوال
+    ├── mysql_example.havnix  # MySQL
+    ├── api_example.havnix    # APIs
+    ├── gui_example.havnix    # واجهة رسومية
+    ├── file_io.havnix        # الملفات
+    ├── math_strings.havnix   # رياضيات ونصوص
+    ├── error_handling.havnix # معالجة أخطاء
+    └── calculator.havnix    # آلة حاسبة
+```
+
+## دليل الاستخدام
+
+للمزيد من التفاصيل والأمثلة، اقرأ [دليل الاستخدام الشامل](GUIDE.md).
+
+## المساهمة
+
+إذا كنت ترغب في المساعدة في تطوير اللغة، يمكنك المساهمة على GitHub سواء بـ Pull Requests أو الإبلاغ عن المشاكل.
+
+## الترخيص
 
 ```
 Powered By Havnix™

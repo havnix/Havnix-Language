@@ -1,55 +1,63 @@
-# havnix.py
+# havnix.py - Havnix Language Interpreter
+# لغة هافنيكس - لغة برمجة عربية باللهجة السودانية
 
 import sys
-from commands.print import execute_print
-from features.if_statement import execute_if_statement
-from features.comparison import execute_comparison_operation
-from features.variables import execute_variable_assignment
-from features.functions import define_function, call_function
-from features.comments import process_comments
-from features.imports import execute_import
-from features.loop import execute_loop
+import os
 
-def execute_line(line, variables, lines, current_index):
-    if line.startswith('قول ليهو'):
-        execute_print(line, variables)
-    elif line.startswith('$'):
-        execute_variable_assignment(line, variables)
-    elif line.startswith('لو'):
-        current_index = execute_if_statement(line, variables, lines, current_index, execute_line)
-    elif line.startswith('دالة'):
-        current_index = define_function(line, lines, current_index)
-    elif line.startswith('جيب لي'):
-        call_function(line, variables, lines, execute_line)
-    elif line.startswith('داير'):
-        execute_import(line, variables, lines)
-    elif line.startswith('تكرار'):
-        current_index = execute_loop(line, variables, lines, current_index, execute_line)
-    elif line == 'انتهى':
-        pass
-    else:
-        print("أمر غير مفهوم:", line)
-    return current_index
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-def run_program(file_name):
-    try:
-        with open(file_name, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
-            variables = {}
-            lines = process_comments(lines)
-            current_index = 0
-            while current_index < len(lines):
-                line = lines[current_index].strip()
-                if line:
-                    current_index = execute_line(line, variables, lines, current_index)
-                current_index += 1
-    except FileNotFoundError:
-        print(f"الملف {file_name} غير موجود.")
-    except Exception as e:
-        print(f"حدث خطأ غير متوقع: {e}")
+from core.interpreter import HavnixInterpreter
+
+VERSION = "2.0.0"
+
+
+def main():
+    if len(sys.argv) < 2:
+        print(f"هافنيكس {VERSION} | Havnix Programming Language")
+        print("لغة برمجة عربية باللهجة السودانية")
+        print()
+        print("الاستخدام: python havnix.py <ملف.havnix>")
+        print()
+        print("الخيارات:")
+        print("  --نسخة, --version    عرض رقم الإصدار")
+        print("  --مساعدة, --help     عرض المساعدة")
+        sys.exit(0)
+
+    arg = sys.argv[1]
+
+    if arg in ('--نسخة', '--version', '-v'):
+        print(f"Havnix {VERSION}")
+        sys.exit(0)
+
+    if arg in ('--مساعدة', '--help', '-h'):
+        print(f"هافنيكس {VERSION} | Havnix Programming Language")
+        print("=" * 50)
+        print()
+        print("الاستخدام:")
+        print("  python havnix.py <ملف.havnix>")
+        print()
+        print("مثال:")
+        print("  python havnix.py main.havnix")
+        print()
+        print("الأوامر الأساسية:")
+        print('  قول ليهو("نص")           → طباعة نص')
+        print('  $اسم = "قيمة";           → تعريف متغير')
+        print('  لو (شرط) { }             → جملة شرطية')
+        print('  طالما (شرط) { }          → حلقة تكرارية')
+        print('  لكل $عنصر في $قائمة { }  → تكرار على قائمة')
+        print('  دالة اسم(معاملات) { }    → تعريف دالة')
+        print('  جيب لي اسم(قيم);         → استدعاء دالة')
+        print()
+        print("للمزيد من المعلومات اقرأ ملف GUIDE.md")
+        sys.exit(0)
+
+    if not os.path.isfile(arg):
+        print(f"خطأ: الملف '{arg}' غير موجود")
+        sys.exit(1)
+
+    interpreter = HavnixInterpreter()
+    interpreter.run(arg)
+
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("استخدام: python havnix.py <file.havnix>")
-    else:
-        run_program(sys.argv[1])
+    main()
