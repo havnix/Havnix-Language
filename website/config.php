@@ -5,7 +5,7 @@
 
 // Database Configuration
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'havnix_db');
+define('DB_NAME', 'havnix');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
@@ -17,7 +17,7 @@ $basePath = ($scriptDir === '/' || $scriptDir === '.') ? '' : rtrim($scriptDir, 
 
 // Site Configuration
 define('SITE_NAME', 'Havnix');
-define('SITE_DESC', 'لغة برمجة بالعربية السودانية');
+define('SITE_DESC', 'لغة برمجة باللهجة السودانية');
 define('SITE_URL', $protocol . '://' . $host . $basePath);
 define('SITE_BASE', $basePath);
 define('SITE_VERSION', '1.0.0');

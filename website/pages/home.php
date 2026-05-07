@@ -4,8 +4,8 @@
 <section class="hero">
     <div class="hero-content">
         <span class="hero-badge"><span class="fi fi-sd"></span> الإصدار <?php echo SITE_VERSION; ?> متاح الآن</span>
-        <h1>برمج بالسودانية مع هافنيكس</h1>
-        <p>لغة برمجة كاملة بالعربية السودانية. اكتب كود بلغتك الأم، ابني تطبيقات سطح مكتب، اتصل بقواعد بيانات، وتعامل مع APIs.</p>
+        <h1>برمج بالسوداني مع هافنيكس</h1>
+        <p>لغة برمجة بالعربية باللهجة السودانية. اكتب كود بلغتك الأم، ابني تطبيقات سطح مكتب، اتصل بقواعد بيانات، وتعامل مع APIs.</p>
 
         <div class="hero-buttons">
             <a href="<?php echo SITE_URL; ?>/download" class="btn btn-primary"><i class="fas fa-download"></i> حمّل الآن</a>
@@ -16,11 +16,15 @@
             <pre><span class="cm">// مرحبا بك في هافنيكس!</span>
 <span class="var">$الاسم</span> <span class="op">=</span> <span class="str">"عثمان"</span><span class="op">;</span>
 <span class="var">$العمر</span> <span class="op">=</span> <span class="num">20</span><span class="op">;</span>
+<span class="var">$الدولة</span> <span class="op">=</span> <span class="str">"السودان"</span><span class="op">;</span>
 
 <span class="fn">قول ليهو</span>(<span class="str">"مرحبا يا <span class="var">$الاسم</span>!"</span>)<span class="op">;</span>
 
-<span class="kw">لو</span> (<span class="var">$العمر</span> <span class="op">>=</span> <span class="num">18</span>) {
-    <span class="fn">قول ليهو</span>(<span class="str">"انت كبير!"</span>)<span class="op">;</span>
+<span class="kw">لو</span> (<span class="var">$الدولة</span> <span class="op">==</span> <span class="str">"السودان"</span>) {
+    <span class="fn">قول ليهو</span>(<span class="str">"انت سوداني!"</span>)<span class="op">;</span>
+}
+<span class="kw">غير كدا</span> {
+    <span class="fn">قول ليهو</span>(<span class="str">"انت ما سوداني!"</span>)<span class="op">;</span>
 }</pre>
         </div>
     </div>
@@ -54,13 +58,13 @@
 <section class="features">
     <div class="container">
         <h2 class="section-title">ميزات قوية بلغتك</h2>
-        <p class="section-subtitle">هافنيكس مش بس لغة برمجة بسيطة - دي لغة كاملة فيها كل شي بتحتاجو</p>
+        <p class="section-subtitle">هافنيكس ما بس لغة برمجة بسيطة - دي لغة كاملة فيها كل شي بتحتاجو</p>
 
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-desktop"></i></div>
                 <h3>تطبيقات سطح مكتب</h3>
-                <p>صمم واجهات رسومية كاملة بأزرار ونصوص ومدخلات وقوائم منسدلة - كل شي بالعربي.</p>
+                <p>صمم واجهات رسومية كاملة بأزرار ونصوص ومدخلات وقوائم اختيارات - كل شي باللهجة السودانية.</p>
             </div>
 
             <div class="feature-card">
@@ -78,12 +82,12 @@
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-code"></i></div>
                 <h3>IDE متكامل</h3>
-                <p>بيئة تطوير مدمجة مع تلوين الكود، مستكشف ملفات، طرفية تفاعلية، ودعم Git.</p>
+                <p>بيئة تطوير مدمجة مع تلوين الكود، مستكشف ملفات، موجه أوامر، ودعم Git.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-cubes"></i></div>
-                <h3>مكتبات مجتمعية</h3>
+                <h3>مكتبات</h3>
                 <p>استخدم مكتبات جاهزة من المجتمع أو ارفع مكتبتك الخاصة ليستفيد منها الآخرون.</p>
             </div>
 
@@ -100,7 +104,7 @@
 <section style="padding: 80px 0; background: var(--bg-dark);">
     <div class="container">
         <h2 class="section-title">ليه هافنيكس؟</h2>
-        <p class="section-subtitle">لغة مصممة خصيصاً لتسهيل البرمجة على العرب</p>
+        <p class="section-subtitle">لغة مصممة خصيصاً لتسهيل البرمجة للعرب والسودانيين</p>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 40px;">
             <div style="display: flex; gap: 16px; align-items: flex-start;">
@@ -119,7 +123,7 @@
                 </div>
                 <div>
                     <h3 style="margin-bottom: 8px;">سهلة التعلم</h3>
-                    <p style="color: var(--text-muted); font-size: 14px;">بنية بسيطة ومباشرة. مثالية للمبتدئين والطلاب اللي عايزين يتعلمو البرمجة.</p>
+                    <p style="color: var(--text-muted); font-size: 14px;">بنية بسيطة ومباشرة. مثالية للمبتدئين والطلاب العايزين يتعلمو البرمجة.</p>
                 </div>
             </div>
 
@@ -139,7 +143,7 @@
                 </div>
                 <div>
                     <h3 style="margin-bottom: 8px;">مفتوحة المصدر</h3>
-                    <p style="color: var(--text-muted); font-size: 14px;">مجانية بالكامل تحت رخصة MIT. ساهم في التطوير وكن جزء من المجتمع.</p>
+                    <p style="color: var(--text-muted); font-size: 14px;">مجانية بالكامل تحت رخصة MIT. ساهم في التطوير وخليك جزء من المجتمع.</p>
                 </div>
             </div>
 
@@ -169,10 +173,10 @@
 <!-- Quick Examples -->
 <section style="padding: 80px 0; background: var(--surface);">
     <div class="container">
-        <h2 class="section-title">شوف كيف سهل</h2>
-        <p class="section-subtitle">كل أمر بالعربي. ما في داعي تتعلم إنجليزي عشان تبرمج.</p>
+        <h2 class="section-title">شوف كيف الموضوع ساهل</h2>
+        <p class="section-subtitle">كل شي بالعربي. ما في داعي تتعلم إنجليزي عشان تبرمج.</p>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px;">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
             <div>
                 <h3 style="margin-bottom: 12px; color: var(--accent);"><i class="fas fa-list"></i> قوائم وحلقات</h3>
                 <div class="code-block">
@@ -229,7 +233,7 @@
             <div style="flex: 1; min-width: 250px;">
                 <h2 style="margin-bottom: 8px;">المطور</h2>
                 <h3 style="color: var(--accent); font-size: 24px; margin-bottom: 8px;">Osman Salih <span style="color: var(--text-muted); font-size: 16px;">(Snixrs)</span></h3>
-                <p style="color: var(--text-muted); margin-bottom: 12px;">مطور سوداني، عمر 20 سنة. صمم وبرمج لغة هافنيكس لتمكين العرب من البرمجة بلغتهم الأم.</p>
+                <p style="color: var(--text-muted); margin-bottom: 12px;">مطور سوداني، عمر 20 سنة. صمم وبرمج لغة هافنيكس لتمكين السودانيين والعرب من البرمجة بلغتهم الأم.</p>
                 <div style="display: flex; gap: 12px; align-items: center;">
                     <a href="https://github.com/Snixrs" target="_blank" class="btn btn-outline" style="padding: 8px 16px; font-size: 14px;"><i class="fab fa-github"></i> GitHub</a>
                     <span class="fi fi-sd" style="font-size: 20px;"></span>
@@ -243,7 +247,7 @@
 <section style="padding: 80px 0; background: var(--bg-gradient); text-align: center;">
     <div class="container">
         <h2 style="font-size: 36px; margin-bottom: 16px;">جاهز تبدأ؟</h2>
-        <p style="color: var(--text-light); margin-bottom: 32px; font-size: 18px;">حمّل هافنيكس مجاناً وابدأ البرمجة بالسودانية الحين</p>
+        <p style="color: var(--text-light); margin-bottom: 32px; font-size: 18px;">حمّل هافنيكس مجاناً وابدا برمج بالسوداني!</p>
         <div class="hero-buttons">
             <a href="<?php echo SITE_URL; ?>/download" class="btn btn-primary"><i class="fas fa-download"></i> حمّل مجاناً</a>
             <a href="https://github.com/Snixrs/Havnix-Language" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
