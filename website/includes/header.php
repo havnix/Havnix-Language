@@ -8,15 +8,14 @@
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>H</text></svg>">
+    <link rel="icon" type="image/png" href="<?php echo SITE_URL; ?>/assets/images/logo.png">
 </head>
 <body>
 
 <nav class="navbar">
     <div class="nav-inner">
         <a href="<?php echo SITE_URL; ?>/" class="nav-logo">
-            <img src="<?php echo SITE_URL; ?>/assets/images/logo.png" alt="Havnix Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <span class="logo-fallback" style="display:none; width:36px; height:36px; background:linear-gradient(180deg,#000,#1B569A); border-radius:8px; align-items:center; justify-content:center; color:white; font-weight:900; font-size:18px;">H</span>
+            <img src="<?php echo SITE_URL; ?>/assets/images/logo.png" alt="Havnix Logo" class="logo-img">
             Havnix
         </a>
 

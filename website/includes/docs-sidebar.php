@@ -6,6 +6,7 @@
         <li><a href="<?php echo SITE_URL; ?>/docs/syntax" <?php echo $slug === 'docs/syntax' ? 'class="active"' : ''; ?>><i class="fas fa-ruler-combined"></i> بنية اللغة</a></li>
         <li><a href="<?php echo SITE_URL; ?>/docs/functions" <?php echo $slug === 'docs/functions' ? 'class="active"' : ''; ?>><i class="fas fa-bolt"></i> الدوال المدمجة</a></li>
         <li><a href="<?php echo SITE_URL; ?>/docs/advanced" <?php echo $slug === 'docs/advanced' ? 'class="active"' : ''; ?>><i class="fas fa-fire"></i> الميزات المتقدمة</a></li>
+        <li><a href="<?php echo SITE_URL; ?>/docs/packages" <?php echo $slug === 'docs/packages' ? 'class="active"' : ''; ?>><i class="fas fa-cubes"></i> المكتبات</a></li>
     </ul>
 
     <h3 style="margin-top: 24px;"><i class="fas fa-link"></i> روابط سريعة</h3>

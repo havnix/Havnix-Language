@@ -228,7 +228,7 @@ class HavnixInterpreter:
             raise HavnixContinue()
         elif line.startswith('جرب'):
             return self._cmd_try(line, lines, index, scope)
-        elif line.startswith('داير '):
+        elif line.startswith('داير ') or line.startswith('استورد '):
             self._cmd_import(line, scope)
         elif line.startswith('اسأل') or line.startswith('اسال'):
             self._cmd_input(line, scope)
@@ -745,7 +745,7 @@ class HavnixInterpreter:
     # ─── Import ───
 
     def _cmd_import(self, line, scope):
-        match = re.match(r'داير\s+"(.+?)"\s*;?\s*$', line)
+        match = re.match(r'(?:داير|استورد)\s+"(.+?)"\s*;?\s*$', line)
         if not match:
             print("خطأ في أمر الاستيراد:", line)
             return
@@ -754,12 +754,17 @@ class HavnixInterpreter:
         if not file_path.endswith('.havnix'):
             file_path += '.havnix'
 
+        # Get Havnix installation directory for package lookup
+        havnix_install_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
         search_paths = [
             os.path.join(self.base_dir, file_path),
             file_path,
             os.path.join(self.base_dir, 'include', file_path),
             os.path.join(self.base_dir, 'lib', file_path),
             os.path.join(self.base_dir, 'src', file_path),
+            os.path.join(self.base_dir, 'havnix_libraries', file_path),
+            os.path.join(havnix_install_dir, 'packages', file_path),
         ]
 
         for path in search_paths:

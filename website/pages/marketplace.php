@@ -27,85 +27,79 @@
         <div class="packages-grid">
             <div class="package-card" data-category="utils">
                 <div class="pkg-header">
-                    <span class="pkg-name"><i class="fas fa-chart-bar" style="color: var(--accent);"></i> رسوم_بيانية</span>
+                    <span class="pkg-name"><i class="fas fa-calendar-alt" style="color: var(--accent);"></i> التقويم_الهجري</span>
                     <span class="pkg-version">v1.0.0</span>
                 </div>
-                <p class="pkg-desc">مكتبة لرسم الأشكال البيانية والمخططات. ارسم أعمدة ودوائر وخطوط بسهولة.</p>
+                <p class="pkg-desc">تحويل التواريخ الميلادية إلى هجرية، أسماء الأشهر والأيام بالعربي.</p>
                 <div class="pkg-meta">
-                    <span><i class="fas fa-user"></i> أحمد</span>
-                    <span><i class="fas fa-download"></i> 245</span>
-                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 4.5</span>
-                    <span class="pkg-status approved"><i class="fas fa-check-circle"></i> مُعتمد</span>
+                    <span><i class="fas fa-user"></i> Havnix Team</span>
+                    <span><i class="fas fa-terminal"></i> <code style="font-size: 11px;">havnix install التقويم_الهجري</code></span>
+                    <span class="pkg-status approved"><i class="fas fa-check-circle"></i> رسمية</span>
+                </div>
+            </div>
+
+            <div class="package-card" data-category="math">
+                <div class="pkg-header">
+                    <span class="pkg-name"><i class="fas fa-calculator" style="color: var(--accent);"></i> الرياضيات_المتقدمة</span>
+                    <span class="pkg-version">v1.0.0</span>
+                </div>
+                <p class="pkg-desc">قوة، مضروب، متوسط، وسيط، أعداد أولية، فيبوناتشي، ق.م.أ، م.م.أ.</p>
+                <div class="pkg-meta">
+                    <span><i class="fas fa-user"></i> Havnix Team</span>
+                    <span><i class="fas fa-terminal"></i> <code style="font-size: 11px;">havnix install الرياضيات_المتقدمة</code></span>
+                    <span class="pkg-status approved"><i class="fas fa-check-circle"></i> رسمية</span>
+                </div>
+            </div>
+
+            <div class="package-card" data-category="text">
+                <div class="pkg-header">
+                    <span class="pkg-name"><i class="fas fa-font" style="color: var(--accent);"></i> معالج_النصوص</span>
+                    <span class="pkg-version">v1.0.0</span>
+                </div>
+                <p class="pkg-desc">عكس نص، عد كلمات وحروف، بحث، اقتطاع، تنظيف، دمج نصوص.</p>
+                <div class="pkg-meta">
+                    <span><i class="fas fa-user"></i> Havnix Team</span>
+                    <span><i class="fas fa-terminal"></i> <code style="font-size: 11px;">havnix install معالج_النصوص</code></span>
+                    <span class="pkg-status approved"><i class="fas fa-check-circle"></i> رسمية</span>
                 </div>
             </div>
 
             <div class="package-card" data-category="utils">
                 <div class="pkg-header">
-                    <span class="pkg-name"><i class="fas fa-lock" style="color: var(--accent);"></i> تشفير</span>
-                    <span class="pkg-version">v2.1.0</span>
+                    <span class="pkg-name"><i class="fas fa-palette" style="color: var(--accent);"></i> الألوان</span>
+                    <span class="pkg-version">v1.0.0</span>
                 </div>
-                <p class="pkg-desc">أدوات تشفير وفك تشفير النصوص. دعم Base64 وMD5 وSHA256.</p>
+                <p class="pkg-desc">طباعة ملونة في الطرفية، رسائل نجاح وخطأ وتحذير مزخرفة.</p>
                 <div class="pkg-meta">
-                    <span><i class="fas fa-user"></i> محمد</span>
-                    <span><i class="fas fa-download"></i> 189</span>
-                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 4.8</span>
-                    <span class="pkg-status approved"><i class="fas fa-check-circle"></i> مُعتمد</span>
+                    <span><i class="fas fa-user"></i> Havnix Team</span>
+                    <span><i class="fas fa-terminal"></i> <code style="font-size: 11px;">havnix install الألوان</code></span>
+                    <span class="pkg-status approved"><i class="fas fa-check-circle"></i> رسمية</span>
                 </div>
             </div>
 
             <div class="package-card" data-category="utils">
                 <div class="pkg-header">
-                    <span class="pkg-name"><i class="fas fa-calendar-alt" style="color: var(--accent);"></i> تاريخ_هجري</span>
-                    <span class="pkg-version">v1.2.0</span>
-                </div>
-                <p class="pkg-desc">تحويل بين التاريخ الهجري والميلادي. حساب الأيام والأشهر.</p>
-                <div class="pkg-meta">
-                    <span><i class="fas fa-user"></i> علي</span>
-                    <span><i class="fas fa-download"></i> 320</span>
-                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 4.9</span>
-                    <span class="pkg-status approved"><i class="fas fa-check-circle"></i> مُعتمد</span>
-                </div>
-            </div>
-
-            <div class="package-card" data-category="network">
-                <div class="pkg-header">
-                    <span class="pkg-name"><i class="fas fa-language" style="color: var(--accent);"></i> ترجمة</span>
-                    <span class="pkg-version">v0.5.0</span>
-                </div>
-                <p class="pkg-desc">مكتبة ترجمة النصوص بين اللغات باستخدام APIs مجانية.</p>
-                <div class="pkg-meta">
-                    <span><i class="fas fa-user"></i> خالد</span>
-                    <span><i class="fas fa-download"></i> 98</span>
-                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 4.2</span>
-                    <span class="pkg-status pending"><i class="fas fa-clock"></i> قيد المراجعة</span>
-                </div>
-            </div>
-
-            <div class="package-card" data-category="ui">
-                <div class="pkg-header">
-                    <span class="pkg-name"><i class="fas fa-gamepad" style="color: var(--accent);"></i> العاب</span>
+                    <span class="pkg-name"><i class="fas fa-check-double" style="color: var(--accent);"></i> التحقق</span>
                     <span class="pkg-version">v1.0.0</span>
                 </div>
-                <p class="pkg-desc">أدوات بناء ألعاب بسيطة. رسم أشكال وتحريكها والتفاعل مع المستخدم.</p>
+                <p class="pkg-desc">تحقق من بريد إلكتروني، هاتف، كلمة مرور قوية، أرقام، نطاقات.</p>
                 <div class="pkg-meta">
-                    <span><i class="fas fa-user"></i> عمر</span>
-                    <span><i class="fas fa-download"></i> 156</span>
-                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 4.6</span>
-                    <span class="pkg-status approved"><i class="fas fa-check-circle"></i> مُعتمد</span>
+                    <span><i class="fas fa-user"></i> Havnix Team</span>
+                    <span><i class="fas fa-terminal"></i> <code style="font-size: 11px;">havnix install التحقق</code></span>
+                    <span class="pkg-status approved"><i class="fas fa-check-circle"></i> رسمية</span>
                 </div>
             </div>
 
-            <div class="package-card" data-category="network">
+            <div class="package-card" data-category="data">
                 <div class="pkg-header">
-                    <span class="pkg-name"><i class="fas fa-envelope" style="color: var(--accent);"></i> بريد</span>
-                    <span class="pkg-version">v1.1.0</span>
+                    <span class="pkg-name"><i class="fas fa-folder-open" style="color: var(--accent);"></i> أدوات_الملفات</span>
+                    <span class="pkg-version">v1.0.0</span>
                 </div>
-                <p class="pkg-desc">إرسال بريد إلكتروني عبر SMTP. يدعم HTML والمرفقات.</p>
+                <p class="pkg-desc">قراءة وكتابة ملفات، JSON، CSV، سجلات، نسخ ملفات.</p>
                 <div class="pkg-meta">
-                    <span><i class="fas fa-user"></i> فاطمة</span>
-                    <span><i class="fas fa-download"></i> 134</span>
-                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 4.4</span>
-                    <span class="pkg-status approved"><i class="fas fa-check-circle"></i> مُعتمد</span>
+                    <span><i class="fas fa-user"></i> Havnix Team</span>
+                    <span><i class="fas fa-terminal"></i> <code style="font-size: 11px;">havnix install أدوات_الملفات</code></span>
+                    <span class="pkg-status approved"><i class="fas fa-check-circle"></i> رسمية</span>
                 </div>
             </div>
         </div>

@@ -1,0 +1,9 @@
+{
+    "name": "أدوات_الملفات",
+    "version": "1.0.0",
+    "description": "مكتبة أدوات الملفات - قراءة، كتابة، JSON، CSV، سجلات",
+    "author": "Havnix Team",
+    "main": "أدوات_الملفات.havnix",
+    "keywords": ["ملفات", "قراءة", "كتابة", "JSON", "CSV"],
+    "license": "MIT"
+}

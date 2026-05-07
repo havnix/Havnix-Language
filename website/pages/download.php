@@ -104,13 +104,74 @@ cd Havnix-Language</pre>
 
         <!-- Build EXE -->
         <div class="install-steps" style="margin-top: 24px;">
-            <h2 style="color: var(--accent);"><i class="fas fa-hammer"></i> بناء ملف EXE بنفسك</h2>
-            <p style="color: var(--text-muted); margin-bottom: 24px;">اصنع نسختك المحمولة من هافنيكس</p>
+            <h2 style="color: var(--accent);"><i class="fas fa-hammer"></i> بناء ملف setup.exe بنفسك</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">اصنع مثبّت هافنيكس الخاص بك</p>
 
+            <h4 style="margin-bottom: 8px;">الطريقة 1: PyInstaller (كل الأنظمة)</h4>
+            <div class="code-block" style="direction: ltr; text-align: left; margin-bottom: 16px;">
+                <pre># Windows
+installer\build_installer.bat
+
+# Linux / macOS
+chmod +x installer/build_installer.sh
+./installer/build_installer.sh
+
+# النتيجة: dist/havnix-setup.exe (أو dist/havnix-setup)</pre>
+            </div>
+
+            <h4 style="margin-bottom: 8px;">الطريقة 2: Inno Setup (Windows فقط - مثبت احترافي)</h4>
+            <div class="code-block" style="direction: ltr; text-align: left; margin-bottom: 16px;">
+                <pre># 1. حمّل Inno Setup: https://jrsoftware.org/isinfo.php
+# 2. افتح: installer/havnix_setup.iss
+# 3. اضغط Compile
+# النتيجة: havnix-setup.exe (مثبت Windows احترافي مع:
+#   - إضافة تلقائية لـ PATH
+#   - اختصارات سطح المكتب + Start Menu
+#   - ربط ملفات .havnix
+#   - uninstall.exe
+#   - تثبيت المتطلبات تلقائياً)</pre>
+            </div>
+
+            <h4 style="margin-bottom: 8px;">الطريقة 3: Python مباشرة</h4>
             <div class="code-block" style="direction: ltr; text-align: left;">
-                <pre>pip install pyinstaller
-python3 build_exe.py
-# الملف التنفيذي: dist/HavnixIDE.exe</pre>
+                <pre>python3 installer/havnix_installer.py</pre>
+            </div>
+        </div>
+
+        <!-- What Setup Includes -->
+        <div class="install-steps" style="margin-top: 24px;">
+            <h2 style="color: var(--accent);"><i class="fas fa-box"></i> ماذا يتضمن المثبّت؟</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 16px;">
+                <div style="padding: 16px; background: var(--bg-dark); border-radius: 12px; border: 1px solid var(--border);">
+                    <i class="fas fa-code" style="color: var(--accent); font-size: 24px; margin-bottom: 8px;"></i>
+                    <h4>مفسر هافنيكس</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">havnix.py + أوامر CLI</p>
+                </div>
+                <div style="padding: 16px; background: var(--bg-dark); border-radius: 12px; border: 1px solid var(--border);">
+                    <i class="fas fa-laptop-code" style="color: var(--accent); font-size: 24px; margin-bottom: 8px;"></i>
+                    <h4>IDE متكامل</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">محرر + طرفية + مستكشف ملفات</p>
+                </div>
+                <div style="padding: 16px; background: var(--bg-dark); border-radius: 12px; border: 1px solid var(--border);">
+                    <i class="fas fa-cubes" style="color: var(--accent); font-size: 24px; margin-bottom: 8px;"></i>
+                    <h4>6 مكتبات جاهزة</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">رياضيات، تقويم، ألوان، ...</p>
+                </div>
+                <div style="padding: 16px; background: var(--bg-dark); border-radius: 12px; border: 1px solid var(--border);">
+                    <i class="fas fa-route" style="color: var(--accent); font-size: 24px; margin-bottom: 8px;"></i>
+                    <h4>PATH تلقائي</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">اكتب <code>havnix</code> من أي مكان</p>
+                </div>
+                <div style="padding: 16px; background: var(--bg-dark); border-radius: 12px; border: 1px solid var(--border);">
+                    <i class="fas fa-file-alt" style="color: var(--accent); font-size: 24px; margin-bottom: 8px;"></i>
+                    <h4>ربط .havnix</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">دبل كليك يشغل الملف</p>
+                </div>
+                <div style="padding: 16px; background: var(--bg-dark); border-radius: 12px; border: 1px solid var(--border);">
+                    <i class="fas fa-trash-alt" style="color: var(--accent); font-size: 24px; margin-bottom: 8px;"></i>
+                    <h4>إزالة نظيفة</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">uninstall.exe لإزالة كل شي</p>
+                </div>
             </div>
         </div>
     </div>

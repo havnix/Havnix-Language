@@ -58,6 +58,12 @@ python3 ide.py</pre>
                     <h3>الميزات المتقدمة</h3>
                     <p>MySQL، APIs، واجهات سطح المكتب</p>
                 </a>
+
+                <a href="<?php echo SITE_URL; ?>/docs/packages" class="feature-card" style="text-decoration: none;">
+                    <div class="feature-icon"><i class="fas fa-cubes"></i></div>
+                    <h3>المكتبات</h3>
+                    <p>تثبيت واستخدام وإنشاء المكتبات</p>
+                </a>
             </div>
         </div>
     </div>

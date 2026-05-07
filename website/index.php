@@ -36,6 +36,7 @@ $routes = [
     'docs/syntax'    => 'pages/docs-syntax.php',
     'docs/functions' => 'pages/docs-functions.php',
     'docs/advanced'  => 'pages/docs-advanced.php',
+    'docs/packages'  => 'pages/docs-packages.php',
     'download'       => 'pages/download.php',
     'marketplace'    => 'pages/marketplace.php',
     'about'          => 'pages/about.php',
