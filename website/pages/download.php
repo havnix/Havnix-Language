@@ -13,33 +13,33 @@
         <div class="download-cards">
             <!-- Windows -->
             <div class="download-card">
-                <div class="os-icon">🪟</div>
+                <div class="os-icon"><i class="fab fa-windows" style="color: #0078D4;"></i></div>
                 <h3>Windows</h3>
                 <p>Windows 10/11 - 64-bit<br>يتضمن Python المدمج + IDE</p>
                 <a href="https://github.com/Snixrs/Havnix-Language/releases/latest" target="_blank" class="btn btn-primary" style="margin-bottom: 8px;">
-                    ⬇ تحميل HavnixSetup.exe
+                    <i class="fas fa-download"></i> تحميل HavnixSetup.exe
                 </a>
                 <p style="font-size: 12px; color: var(--text-muted); margin-top: 12px;">~25 MB | يتطلب صلاحيات مدير</p>
             </div>
 
             <!-- Linux -->
             <div class="download-card">
-                <div class="os-icon">🐧</div>
+                <div class="os-icon"><i class="fab fa-linux" style="color: #FCC624;"></i></div>
                 <h3>Linux</h3>
                 <p>Ubuntu, Debian, Fedora, Arch<br>DEB + RPM + تثبيت يدوي</p>
                 <a href="https://github.com/Snixrs/Havnix-Language/releases/latest" target="_blank" class="btn btn-primary" style="margin-bottom: 8px;">
-                    ⬇ تحميل havnix-linux.tar.gz
+                    <i class="fas fa-download"></i> تحميل havnix-linux.tar.gz
                 </a>
                 <p style="font-size: 12px; color: var(--text-muted); margin-top: 12px;">~15 MB | يتطلب Python 3.8+</p>
             </div>
 
             <!-- macOS -->
             <div class="download-card">
-                <div class="os-icon">🍎</div>
+                <div class="os-icon"><i class="fab fa-apple" style="color: #999;"></i></div>
                 <h3>macOS</h3>
                 <p>macOS 11+ (Big Sur وأحدث)<br>Intel + Apple Silicon</p>
                 <a href="https://github.com/Snixrs/Havnix-Language/releases/latest" target="_blank" class="btn btn-primary" style="margin-bottom: 8px;">
-                    ⬇ تحميل Havnix.dmg
+                    <i class="fas fa-download"></i> تحميل Havnix.dmg
                 </a>
                 <p style="font-size: 12px; color: var(--text-muted); margin-top: 12px;">~20 MB | يتطلب Python 3.8+</p>
             </div>
@@ -47,7 +47,7 @@
 
         <!-- Manual Install -->
         <div class="install-steps">
-            <h2 style="color: var(--accent);">📦 تثبيت يدوي (كل الأنظمة)</h2>
+            <h2 style="color: var(--accent);"><i class="fas fa-box-open"></i> تثبيت يدوي (كل الأنظمة)</h2>
             <p style="color: var(--text-muted); margin-bottom: 24px;">إذا تفضل التثبيت اليدوي أو عندك Python مثبت مسبقاً</p>
 
             <div class="step">
@@ -104,7 +104,7 @@ cd Havnix-Language</pre>
 
         <!-- Build EXE -->
         <div class="install-steps" style="margin-top: 24px;">
-            <h2 style="color: var(--accent);">🔨 بناء ملف EXE بنفسك</h2>
+            <h2 style="color: var(--accent);"><i class="fas fa-hammer"></i> بناء ملف EXE بنفسك</h2>
             <p style="color: var(--text-muted); margin-bottom: 24px;">اصنع نسختك المحمولة من هافنيكس</p>
 
             <div class="code-block" style="direction: ltr; text-align: left;">

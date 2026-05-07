@@ -759,3 +759,149 @@ a:hover { color: var(--text-white); }
     .docs-layout { flex-direction: column; }
     .docs-sidebar { width: 100%; position: static; }
 }
+
+/* ─── Logo ─── */
+.logo-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+/* ─── FAQ ─── */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+.faq-item:hover {
+    border-color: var(--accent);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background: none;
+    border: none;
+    color: var(--text-white);
+    font-size: 16px;
+    cursor: pointer;
+    text-align: right;
+    direction: rtl;
+    font-family: inherit;
+    gap: 12px;
+}
+
+.faq-question span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.faq-arrow {
+    transition: transform 0.3s;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.faq-item.open .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 20px;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 600px;
+    padding: 0 20px 20px;
+}
+
+.faq-answer p,
+.faq-answer li {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.faq-answer a {
+    color: var(--accent);
+}
+
+/* ─── Steps ─── */
+.step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    margin-bottom: 6px;
+    color: var(--text-white);
+}
+
+.install-steps {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid var(--border);
+    margin-top: 32px;
+}
+
+/* ─── OS Icon ─── */
+.os-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+/* ─── Footer bottom ─── */
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}

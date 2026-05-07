@@ -5,7 +5,7 @@
         <?php include INCLUDES_PATH . '/docs-sidebar.php'; ?>
 
         <div class="docs-content">
-            <h1>🔥 الميزات المتقدمة</h1>
+            <h1><i class="fas fa-fire"></i> الميزات المتقدمة</h1>
 
             <h2>قواعد بيانات MySQL</h2>
             <p>هافنيكس تدعم الاتصال بقواعد بيانات MySQL وتنفيذ الاستعلامات مباشرة.</p>

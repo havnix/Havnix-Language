@@ -2,25 +2,44 @@
 /**
  * Havnix Website - Main Router
  * Slug-based URL routing
+ * Works on XAMPP, Apache, Nginx, and PHP built-in server
  */
 
 require_once __DIR__ . '/config.php';
 
-// Get the slug from URL
-$slug = isset($_GET['slug']) ? trim($_GET['slug'], '/') : '';
+// Get the slug from URL - support both .htaccess rewrite and direct access
+if (isset($_GET['slug'])) {
+    $slug = trim($_GET['slug'], '/');
+} else {
+    // Fallback: parse from REQUEST_URI (for servers without .htaccess)
+    $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+    if ($scriptDir !== '/' && $scriptDir !== '.') {
+        $slug = substr($uri, strlen($scriptDir));
+    } else {
+        $slug = $uri;
+    }
+    $slug = trim($slug, '/');
+    // Remove index.php if present
+    if (strpos($slug, 'index.php') === 0) {
+        $slug = '';
+    }
+}
+
 $slug = $slug ?: 'home';
 
 // Define routes
 $routes = [
-    'home'        => 'pages/home.php',
-    'docs'        => 'pages/docs.php',
-    'docs/start'  => 'pages/docs-start.php',
-    'docs/syntax' => 'pages/docs-syntax.php',
+    'home'           => 'pages/home.php',
+    'docs'           => 'pages/docs.php',
+    'docs/start'     => 'pages/docs-start.php',
+    'docs/syntax'    => 'pages/docs-syntax.php',
     'docs/functions' => 'pages/docs-functions.php',
     'docs/advanced'  => 'pages/docs-advanced.php',
-    'download'    => 'pages/download.php',
-    'marketplace' => 'pages/marketplace.php',
-    'about'       => 'pages/about.php',
+    'download'       => 'pages/download.php',
+    'marketplace'    => 'pages/marketplace.php',
+    'about'          => 'pages/about.php',
+    'help'           => 'pages/help.php',
 ];
 
 // Check if route exists

@@ -5,7 +5,7 @@
         <?php include INCLUDES_PATH . '/docs-sidebar.php'; ?>
 
         <div class="docs-content">
-            <h1>🚀 البداية السريعة</h1>
+            <h1><i class="fas fa-rocket"></i> البداية السريعة</h1>
 
             <h2>المتغيرات</h2>
             <p>كل متغير يبدأ بعلامة <code>$</code></p>

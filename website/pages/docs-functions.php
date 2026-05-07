@@ -5,7 +5,7 @@
         <?php include INCLUDES_PATH . '/docs-sidebar.php'; ?>
 
         <div class="docs-content">
-            <h1>⚡ الدوال المدمجة</h1>
+            <h1><i class="fas fa-bolt"></i> الدوال المدمجة</h1>
             <p>هافنيكس تأتي مع أكثر من 30 دالة مدمجة جاهزة للاستخدام.</p>
 
             <h2>دوال النصوص</h2>

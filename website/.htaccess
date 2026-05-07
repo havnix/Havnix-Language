@@ -1,4 +1,9 @@
 RewriteEngine On
+
+# Auto-detect base directory
+# If installed at localhost/havnix/ → RewriteBase /havnix/website/
+# If installed at root → RewriteBase /
+# Adjust this line to match your installation path:
 RewriteBase /
 
 # Redirect to HTTPS (uncomment for production)

@@ -5,7 +5,7 @@
         <?php include INCLUDES_PATH . '/docs-sidebar.php'; ?>
 
         <div class="docs-content">
-            <h1>📐 بنية اللغة</h1>
+            <h1><i class="fas fa-ruler-combined"></i> بنية اللغة</h1>
 
             <h2>أنواع البيانات</h2>
             <table class="docs-table">

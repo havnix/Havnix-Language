@@ -39,21 +39,34 @@ mysql -u root -p < database.sql
 
 ### 3. التكوين
 
-عدّل `config.php`:
+عدّل `config.php` (اختياري - الموقع يكتشف المسار تلقائياً):
 
 ```php
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'havnix_db');
 define('DB_USER', 'root');
 define('DB_PASS', 'your_password');
-define('SITE_URL', 'https://your-domain.com');
 ```
 
-### 4. التشغيل المحلي
+> ملاحظة: `SITE_URL` يتم اكتشافه تلقائياً - لا حاجة لتعديله.
+
+### 4. التشغيل على XAMPP (موصى به)
+
+1. انسخ مجلد `website` إلى `C:\xampp\htdocs\havnix\`
+2. شغّل Apache من لوحة XAMPP
+3. افتح المتصفح: `http://localhost/havnix/`
+
+> **ملاحظة:** تأكد من تفعيل `mod_rewrite` في Apache. في XAMPP، افتح `httpd.conf` وتأكد من وجود:
+> ```
+> LoadModule rewrite_module modules/mod_rewrite.so
+> ```
+> وأن `AllowOverride All` مفعّل لمجلد htdocs.
+
+### 5. التشغيل بدون XAMPP
 
 ```bash
 cd website
-php -S localhost:8080
+php -S localhost:8080 router.php
 ```
 
 ثم افتح: http://localhost:8080

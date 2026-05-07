@@ -36,25 +36,25 @@ python3 ide.py</pre>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 24px;">
                 <a href="<?php echo SITE_URL; ?>/docs/start" class="feature-card" style="text-decoration: none;">
-                    <div class="feature-icon">🚀</div>
+                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
                     <h3>البداية السريعة</h3>
                     <p>تعلم الأساسيات: متغيرات، شروط، حلقات، دوال</p>
                 </a>
 
                 <a href="<?php echo SITE_URL; ?>/docs/syntax" class="feature-card" style="text-decoration: none;">
-                    <div class="feature-icon">📐</div>
+                    <div class="feature-icon"><i class="fas fa-ruler-combined"></i></div>
                     <h3>بنية اللغة</h3>
                     <p>تفاصيل القواعد النحوية وأنواع البيانات والعمليات</p>
                 </a>
 
                 <a href="<?php echo SITE_URL; ?>/docs/functions" class="feature-card" style="text-decoration: none;">
-                    <div class="feature-icon">⚡</div>
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
                     <h3>الدوال المدمجة</h3>
                     <p>30+ دالة جاهزة للنصوص والرياضيات والملفات</p>
                 </a>
 
                 <a href="<?php echo SITE_URL; ?>/docs/advanced" class="feature-card" style="text-decoration: none;">
-                    <div class="feature-icon">🔥</div>
+                    <div class="feature-icon"><i class="fas fa-fire"></i></div>
                     <h3>الميزات المتقدمة</h3>
                     <p>MySQL، APIs، واجهات سطح المكتب</p>
                 </a>

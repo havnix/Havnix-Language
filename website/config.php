@@ -9,10 +9,17 @@ define('DB_NAME', 'havnix_db');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
+// Auto-detect site URL and base path
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+$basePath = ($scriptDir === '/' || $scriptDir === '.') ? '' : rtrim($scriptDir, '/');
+
 // Site Configuration
 define('SITE_NAME', 'Havnix');
 define('SITE_DESC', 'لغة برمجة بالعربية السودانية');
-define('SITE_URL', 'http://localhost:8080');
+define('SITE_URL', $protocol . '://' . $host . $basePath);
+define('SITE_BASE', $basePath);
 define('SITE_VERSION', '1.0.0');
 
 // Paths
