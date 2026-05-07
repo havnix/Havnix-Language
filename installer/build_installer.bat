@@ -1,7 +1,8 @@
 @echo off
-echo ==============================
+echo ==========================================
 echo    Havnix Installer Builder
-echo ==============================
+echo    يبني: setup.exe + havnix.exe + ide.exe
+echo ==========================================
 echo.
 
 REM Check for Python
@@ -19,13 +20,12 @@ if errorlevel 1 (
     pip install pyinstaller
 )
 
-echo.
-echo [*] جاري بناء havnix-setup.exe...
-echo.
-
 cd /d "%~dp0\.."
 
-python -m PyInstaller --onefile --name havnix-setup --console ^
+echo.
+echo [1/3] جاري بناء havnix-setup.exe (Install Wizard)...
+echo.
+python -m PyInstaller --onefile --windowed --name havnix-setup ^
     --add-data "core;core" ^
     --add-data "packages;packages" ^
     --add-data "examples;examples" ^
@@ -36,10 +36,31 @@ python -m PyInstaller --onefile --name havnix-setup --console ^
     installer\havnix_installer.py
 
 echo.
+echo [2/3] جاري بناء havnix.exe (CLI + Package Manager)...
+echo.
+python -m PyInstaller --onefile --console --name havnix ^
+    --add-data "core;core" ^
+    --add-data "packages;packages" ^
+    havnix.py
+
+echo.
+echo [3/3] جاري بناء havnix-ide.exe (IDE Launcher)...
+echo.
+python -m PyInstaller --onefile --windowed --name havnix-ide ^
+    ide.py
+
+echo.
+echo ==========================================
 if exist dist\havnix-setup.exe (
-    echo [+] تم بناء الملف بنجاح: dist\havnix-setup.exe
-) else (
-    echo [-] فشل بناء الملف
+    echo [+] havnix-setup.exe  - Install Wizard
+)
+if exist dist\havnix.exe (
+    echo [+] havnix.exe        - CLI + Package Manager
+)
+if exist dist\havnix-ide.exe (
+    echo [+] havnix-ide.exe    - IDE Launcher
 )
 echo.
+echo    الملفات في مجلد dist\
+echo ==========================================
 pause

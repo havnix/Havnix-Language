@@ -28,29 +28,58 @@ def build_setup():
         print("[!] PyInstaller غير مثبت. جاري التثبيت...")
         subprocess.run([sys.executable, '-m', 'pip', 'install', 'pyinstaller'], check=True)
 
-    # Build the installer exe
     installer_script = os.path.join(root_dir, 'installer', 'havnix_installer.py')
+    sep = os.pathsep
 
-    print("[*] جاري بناء setup.exe...")
-    cmd = [
+    # 1. Build havnix-setup.exe (GUI Install Wizard)
+    print("[1/3] جاري بناء havnix-setup.exe (Install Wizard)...")
+    cmd_setup = [
         sys.executable, '-m', 'PyInstaller',
-        '--onefile',
+        '--onefile', '--windowed',
         '--name', 'havnix-setup',
-        '--icon', 'NONE',
-        '--add-data', f'{root_dir}/core{os.pathsep}core',
-        '--add-data', f'{root_dir}/packages{os.pathsep}packages',
-        '--add-data', f'{root_dir}/havnix.py{os.pathsep}.',
-        '--add-data', f'{root_dir}/ide.py{os.pathsep}.',
-        '--add-data', f'{root_dir}/requirements.txt{os.pathsep}.',
-        '--add-data', f'{root_dir}/GUIDE.md{os.pathsep}.',
-        '--add-data', f'{root_dir}/examples{os.pathsep}examples',
+        '--add-data', f'{root_dir}/core{sep}core',
+        '--add-data', f'{root_dir}/packages{sep}packages',
+        '--add-data', f'{root_dir}/examples{sep}examples',
+        '--add-data', f'{root_dir}/havnix.py{sep}.',
+        '--add-data', f'{root_dir}/ide.py{sep}.',
+        '--add-data', f'{root_dir}/requirements.txt{sep}.',
+        '--add-data', f'{root_dir}/GUIDE.md{sep}.',
         installer_script
     ]
+    subprocess.run(cmd_setup, cwd=root_dir)
 
-    subprocess.run(cmd, cwd=root_dir)
+    # 2. Build havnix.exe (CLI + Package Manager)
     print()
-    print(f"[+] تم بناء الملف: dist/havnix-setup.exe")
-    print(f"[+] شغل الملف لتثبيت هافنيكس")
+    print("[2/3] جاري بناء havnix.exe (CLI)...")
+    cmd_cli = [
+        sys.executable, '-m', 'PyInstaller',
+        '--onefile', '--console',
+        '--name', 'havnix',
+        '--add-data', f'{root_dir}/core{sep}core',
+        '--add-data', f'{root_dir}/packages{sep}packages',
+        os.path.join(root_dir, 'havnix.py')
+    ]
+    subprocess.run(cmd_cli, cwd=root_dir)
+
+    # 3. Build havnix-ide.exe (IDE Launcher)
+    print()
+    print("[3/3] جاري بناء havnix-ide.exe (IDE)...")
+    cmd_ide = [
+        sys.executable, '-m', 'PyInstaller',
+        '--onefile', '--windowed',
+        '--name', 'havnix-ide',
+        os.path.join(root_dir, 'ide.py')
+    ]
+    subprocess.run(cmd_ide, cwd=root_dir)
+
+    print()
+    print("=" * 40)
+    dist = os.path.join(root_dir, 'dist')
+    for f in ['havnix-setup', 'havnix', 'havnix-ide']:
+        exe = f + ('.exe' if sys.platform == 'win32' else '')
+        if os.path.exists(os.path.join(dist, exe)):
+            print(f"[+] {exe}")
+    print(f"\nالملفات في: {dist}")
 
 
 if __name__ == '__main__':

@@ -1,7 +1,8 @@
 #!/bin/bash
-echo "=============================="
+echo "=========================================="
 echo "   Havnix Installer Builder"
-echo "=============================="
+echo "   يبني: setup + havnix + havnix-ide"
+echo "=========================================="
 echo
 
 # Check for Python
@@ -16,13 +17,12 @@ if ! python3 -m PyInstaller --version &> /dev/null; then
     pip3 install pyinstaller
 fi
 
-echo
-echo "[*] جاري بناء havnix-setup..."
-echo
-
 cd "$(dirname "$0")/.."
 
-python3 -m PyInstaller --onefile --name havnix-setup --console \
+echo
+echo "[1/3] جاري بناء havnix-setup (Install Wizard)..."
+echo
+python3 -m PyInstaller --onefile --windowed --name havnix-setup \
     --add-data "core:core" \
     --add-data "packages:packages" \
     --add-data "examples:examples" \
@@ -33,10 +33,24 @@ python3 -m PyInstaller --onefile --name havnix-setup --console \
     installer/havnix_installer.py
 
 echo
-if [ -f dist/havnix-setup ]; then
-    echo "[+] تم بناء الملف بنجاح: dist/havnix-setup"
-    chmod +x dist/havnix-setup
-else
-    echo "[-] فشل بناء الملف"
-fi
+echo "[2/3] جاري بناء havnix (CLI + Package Manager)..."
 echo
+python3 -m PyInstaller --onefile --console --name havnix \
+    --add-data "core:core" \
+    --add-data "packages:packages" \
+    havnix.py
+
+echo
+echo "[3/3] جاري بناء havnix-ide (IDE Launcher)..."
+echo
+python3 -m PyInstaller --onefile --windowed --name havnix-ide \
+    ide.py
+
+echo
+echo "=========================================="
+[ -f dist/havnix-setup ] && echo "[+] havnix-setup   - Install Wizard"
+[ -f dist/havnix ] && echo "[+] havnix          - CLI + Package Manager"
+[ -f dist/havnix-ide ] && echo "[+] havnix-ide      - IDE Launcher"
+echo
+echo "   الملفات في مجلد dist/"
+echo "=========================================="

@@ -104,10 +104,10 @@ cd Havnix-Language</pre>
 
         <!-- Build EXE -->
         <div class="install-steps" style="margin-top: 24px;">
-            <h2 style="color: var(--accent);"><i class="fas fa-hammer"></i> بناء ملف setup.exe بنفسك</h2>
-            <p style="color: var(--text-muted); margin-bottom: 24px;">اصنع مثبّت هافنيكس الخاص بك</p>
+            <h2 style="color: var(--accent);"><i class="fas fa-hammer"></i> بناء ملفات EXE بنفسك</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">يبني 3 ملفات: <code>havnix-setup.exe</code> (Install Wizard) + <code>havnix.exe</code> (CLI) + <code>havnix-ide.exe</code> (IDE)</p>
 
-            <h4 style="margin-bottom: 8px;">الطريقة 1: PyInstaller (كل الأنظمة)</h4>
+            <h4 style="margin-bottom: 8px;">الطريقة 1: PyInstaller (يبني الثلاث ملفات)</h4>
             <div class="code-block" style="direction: ltr; text-align: left; margin-bottom: 16px;">
                 <pre># Windows
 installer\build_installer.bat
@@ -116,25 +116,29 @@ installer\build_installer.bat
 chmod +x installer/build_installer.sh
 ./installer/build_installer.sh
 
-# النتيجة: dist/havnix-setup.exe (أو dist/havnix-setup)</pre>
+# النتيجة في مجلد dist/:
+#   havnix-setup.exe  → Install Wizard (GUI)
+#   havnix.exe        → CLI + Package Manager
+#   havnix-ide.exe    → IDE Launcher</pre>
             </div>
 
-            <h4 style="margin-bottom: 8px;">الطريقة 2: Inno Setup (Windows فقط - مثبت احترافي)</h4>
+            <h4 style="margin-bottom: 8px;">الطريقة 2: Inno Setup (Windows - مثبت Wizard احترافي)</h4>
             <div class="code-block" style="direction: ltr; text-align: left; margin-bottom: 16px;">
                 <pre># 1. حمّل Inno Setup: https://jrsoftware.org/isinfo.php
 # 2. افتح: installer/havnix_setup.iss
 # 3. اضغط Compile
-# النتيجة: havnix-setup.exe (مثبت Windows احترافي مع:
-#   - إضافة تلقائية لـ PATH
+# النتيجة: havnix-setup.exe مع:
+#   - Install Wizard احترافي
 #   - اختصارات سطح المكتب + Start Menu
+#   - إضافة PATH تلقائياً
 #   - ربط ملفات .havnix
-#   - uninstall.exe
-#   - تثبيت المتطلبات تلقائياً)</pre>
+#   - uninstall.exe</pre>
             </div>
 
-            <h4 style="margin-bottom: 8px;">الطريقة 3: Python مباشرة</h4>
+            <h4 style="margin-bottom: 8px;">الطريقة 3: Python GUI Wizard مباشرة</h4>
             <div class="code-block" style="direction: ltr; text-align: left;">
-                <pre>python3 installer/havnix_installer.py</pre>
+                <pre>python3 installer/havnix_installer.py
+# يفتح Install Wizard بواجهة رسومية</pre>
             </div>
         </div>
 
