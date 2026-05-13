@@ -1,0 +1,64 @@
+{
+    "packages": [
+        {
+            "name": "التقويم_الهجري",
+            "version": "1.0.0",
+            "description": "مكتبة التقويم الهجري - تحويل التواريخ وأسماء الأشهر والأيام",
+            "author": "Havnix Team",
+            "main": "التقويم_الهجري.havnix",
+            "keywords": ["تقويم", "هجري", "تاريخ", "إسلامي"],
+            "downloads": 0,
+            "license": "MIT"
+        },
+        {
+            "name": "الرياضيات_المتقدمة",
+            "version": "1.0.0",
+            "description": "مكتبة رياضيات متقدمة - قوة، مضروب، متوسط، أعداد أولية، فيبوناتشي",
+            "author": "Havnix Team",
+            "main": "الرياضيات_المتقدمة.havnix",
+            "keywords": ["رياضيات", "حساب", "أعداد", "إحصاء"],
+            "downloads": 0,
+            "license": "MIT"
+        },
+        {
+            "name": "معالج_النصوص",
+            "version": "1.0.0",
+            "description": "مكتبة معالجة النصوص - عكس، عد كلمات، بحث، اقتطاع، تنظيف",
+            "author": "Havnix Team",
+            "main": "معالج_النصوص.havnix",
+            "keywords": ["نصوص", "معالجة", "كلمات", "بحث"],
+            "downloads": 0,
+            "license": "MIT"
+        },
+        {
+            "name": "الألوان",
+            "version": "1.0.0",
+            "description": "مكتبة الألوان - طباعة ملونة في الطرفية مع رسائل نجاح وخطأ وتحذير",
+            "author": "Havnix Team",
+            "main": "الألوان.havnix",
+            "keywords": ["ألوان", "طرفية", "تلوين", "ANSI"],
+            "downloads": 0,
+            "license": "MIT"
+        },
+        {
+            "name": "التحقق",
+            "version": "1.0.0",
+            "description": "مكتبة التحقق - بريد إلكتروني، هاتف، كلمة مرور، أرقام، نصوص",
+            "author": "Havnix Team",
+            "main": "التحقق.havnix",
+            "keywords": ["تحقق", "صحة", "بريد", "كلمة مرور"],
+            "downloads": 0,
+            "license": "MIT"
+        },
+        {
+            "name": "أدوات_الملفات",
+            "version": "1.0.0",
+            "description": "مكتبة أدوات الملفات - قراءة، كتابة، JSON، CSV، سجلات",
+            "author": "Havnix Team",
+            "main": "أدوات_الملفات.havnix",
+            "keywords": ["ملفات", "قراءة", "كتابة", "JSON", "CSV"],
+            "downloads": 0,
+            "license": "MIT"
+        }
+    ]
+}

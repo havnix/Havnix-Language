@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# No RewriteBase needed - works automatically in any subdirectory
+# Whether installed at localhost/ or localhost/havnix/ or localhost/any/path/
+
+# Redirect to HTTPS (uncomment for production)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Allow access to real files and directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route everything through index.php
+RewriteRule ^(.*)$ index.php?slug=$1 [QSA,L]
